@@ -1,0 +1,105 @@
+<html>
+<head>
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<link rel="stylesheet" href="jquery.mobile-1.4.5.css">
+	<link rel="stylesheet" href="jquery.mobile-1.4.5.min.css">
+	<script src="jquery.js"></script>
+	<script src="jquery.mobile-1.4.5.js"></script>
+</head>
+<style>
+.due_Date{
+	width: 300px;
+    border: 2px solid #D6D67F;
+    padding: 50px;
+    margin: 25px;
+}
+.acenter {
+    margin: auto;
+    width: 50%;
+    margin-top: 12px;
+    border: 2px solid #D6D67F;
+    padding: 10px;
+}
+</style>
+
+<body>
+	<div data-role="header" data-position="fixed">
+		        <h1 style= "color:#B1B034; font-family: Bradley Hand ITC; font-size:18px">Bump Connect</h1>
+		<a href="#nav-panel" data-icon="bars" data-iconpos="notext">Menu</a>
+		<a href="#" class="ui-link ui-btn-right" data-role="button" data-icon="star">Register</a>
+	</div>
+
+	<div data-role="panel" data-display="overlay" data-theme="a" id="nav-panel">
+		<center><img src="logo.png" style="width:100px;height:100px;"></center>
+		<ul data-role="listview" class="ui-listview-outer" data-inset="true">
+			<li><a href="home.html" data-ajax="false">Home</a></li>
+			  <li data-role="collapsible" data-iconpos="right" data-shadow="false" data-corners="false">
+				    <h2>Baby's Growth</h2>
+				    <ul data-role="listview" data-shadow="false" data-inset="true" data-corners="false">
+					      <li><a href="first_trimester.html" data-ajax="false">First Trimester</a></li>
+					      <li><a href="second_trimester.html" data-ajax="false">Second Trimester</a></li>
+					      <li><a href="third_trimester.html" data-ajax="false">Third Trimester</a></li>
+				    </ul>
+			</li>
+			 <li data-role="collapsible" data-iconpos="right" data-shadow="false" data-corners="false">
+				    <h2>Healthy Pregnancy</h2>
+				    <ul data-role="listview" data-shadow="false" data-inset="true" data-corners="false">
+					      <li><a href="food.html" data-ajax="false">Food</a></li>
+						  <li><a href="preg_discomfort.html" data-ajax="false">Pregnancy Discomforts</a></li>
+				    </ul>
+			</li>
+			<li><a href="fitness.html" data-ajax="false">Fitness</a></li>
+			 <li><a href="birth.html" data-ajax="false">Birth</a></li>
+			 <li data-role="collapsible" data-iconpos="right" data-shadow="false" data-corners="false">
+				    <h2>Baby</h2>
+				    <ul data-role="listview" data-shadow="false" data-inset="true" data-corners="false">
+					      <li><a href="dcare.html" data-ajax="false">Daily Care</a></li>
+					      <li><a href="bhealth.html" data-ajax="false">Baby's Health</a></li>
+				    </ul>
+			</li>
+			<li><a href="about.html" data-ajax="false">About Us</a></li>
+		</ul>
+	</div>
+	<div>
+		<img src="banner.jpg" style="width:100%;height:auto;">
+	</div>
+
+	<blockquote style= "color:#B1B034; font-family: Courier New; font-size:12px">
+		<p align="center">"The only and absolute perfect union of two is when a baby hangs suspended in its mother's womb, like a tiny madman in a padded cell, attached to her, feeling her blood and hormones and moods play throught its body feeling her feelings."</p>
+		<b><p  style= "color:#8A8913" align="right">Diane Ackerman</p></b>
+	</blockquote>
+	
+		<div class="due_Date acenter">
+		<label for="date" style="color:#8A8913; font-family: Courier New; font-size: 11px">First Day of my Last Period:</label>
+            <input type="date" id="txtDate"/>
+        
+        <p>
+            <input type="button" onclick="getdate()" value="Calculate" />
+        </p>
+        
+        <p style="color:#8A8913; font-family: Courier New; font-size: 11px">Due Date:
+            <input type="text" id="due_Date"/>
+        </p>
+  		</div>
+
+        <script>
+            $(function () {
+                $('#txtDate').datepicker();
+                $('#due_Date').datepicker();
+            });
+
+function getdate() {
+                var tt = document.getElementById('txtDate').value;
+                var date = new Date(tt);
+                var newdate = new Date(date);
+                newdate.setDate(newdate.getDate() + 280);
+                var dd = newdate.getDate();
+                var mm = newdate.getMonth() + 1;
+                var y = newdate.getFullYear();
+                var FormattedDate = dd + '/' + mm + '/' + y;
+                document.getElementById('due_Date').value = FormattedDate;
+            }
+        </script>
+
+</body>
+</html>
